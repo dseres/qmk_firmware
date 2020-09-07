@@ -1,4 +1,4 @@
-# This is Hungarian layout for the Planck keyboards.
+# This is a hungarian layout for the Planck keyboards.
 ```
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
@@ -6,9 +6,9 @@
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   É  |  Á   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Shift|   Y  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  Up  |Enter |
+ * |LShift|   Y  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  Up  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | Brite| Alt  | GUI  |Lower |    Space    |Raise |   -  | Left | Down |Right |
+ * | Ctrl |RShift| Alt  | GUI  |Lower |    Space    |Raise |   -  | Left | Down |Right |
  * `-----------------------------------------------------------------------------------'
  */
 
@@ -36,3 +36,10 @@
  * `-----------------------------------------------------------------------------------'
  */
  ```
+
+LShift, Ctrl, RShift and Alt have one-shot-modifier. Lower and Raise has one-shot-layer modifier.
+
+3 combos were added also:
+- yx -> Ctrl + x
+- xc -> Ctrl + c
+- cv -> Ctrl + v
