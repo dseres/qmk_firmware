@@ -1,4 +1,4 @@
-# This is a hungarian layout for the Planck keyboards.
+# This is a hungarian layout for the Planck keyboard.
 ```
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
@@ -37,7 +37,7 @@
  */
  ```
 
-LShift, Ctrl, RShift and Alt have one-shot-modifier. Lower and Raise has one-shot-layer modifier.
+LShift, Ctrl, RShift and Alt have one-shot-modifier. Lower and Raise have one-shot-layer modifier.
 
 3 combos were added also:
 - yx -> Ctrl + x
