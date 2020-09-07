@@ -13,8 +13,13 @@
 #endif // !NO_PRINT
 
 #ifdef AUDIO_ENABLE
-    #define STARTUP_SONG SONG(PLANCK_SOUND)
-    //#define STARTUP_SONG SONG(ODE_TO_JOY)
+
+    #define A_CSIKOSOK \
+        E__NOTE(_A6), E__NOTE(_A6), E__NOTE(_A6), E__NOTE(_F6), E__NOTE(_A6), E__NOTE(_A6), E__NOTE(_A6), E__NOTE(_F6), \
+        E__NOTE(_D6), E__NOTE(_E6), E__NOTE(_F6), E__NOTE(_E6), Q__NOTE(_D6), Q__NOTE(_D6),
+
+    #define STARTUP_SONG SONG(A_CSIKOSOK)
+    //#define STARTUP_SONG SONG(PLANCK_SOUND)
     //#define STARTUP_SONG SONG(NO_SOUND)
 
     #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \
@@ -53,5 +58,5 @@
 #define ONESHOT_TAP_TOGGLE 2  /* Tapping this number of times holds the key until tapped once again. */
 #define ONESHOT_TIMEOUT 2000  /* Time (in ms) before the one shot key is released */
 
-#define COMBO_COUNT 2
+#define COMBO_COUNT 3
 #define COMBO_TERM 100
