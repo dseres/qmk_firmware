@@ -65,14 +65,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |   >  |   #  |   &  |   @  |  {   |   }  |   <  |   >  |   ;  | PgUp | P Scr|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |      | Ins  | Home | PgDo | End  |
+ * |      |      |Alt Gr|Scr LK|      |             |      | Ins  | Home | PgDo | End  |
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_planck_grid(
     HU_TILD, HU_QUOT, HU_DQUO, HU_PLUS, HU_EXLM, HU_PERC, HU_SLSH, HU_EQL,   HU_LPRN,  HU_RPRN, KC_CAPS, KC_BSPC,
     KC_DEL,  HU_BSLS, HU_PIPE, HU_CIRC, HU_LBRC, HU_RBRC, HU_GRV,  HU_ASTR,  HU_DLR,   _______, _______, _______,
     _______, HU_RABK, HU_HASH, HU_AMPR, HU_AT,   HU_LCBR, HU_RCBR, HU_LABK,  HU_RABK,  HU_SCLN, KC_PGUP, KC_PSCR,
-    _______, _______, _______, _______, _______, _______, _______, _______,  KC_INS,   KC_HOME, KC_PGDN, KC_END
+    _______, _______, KC_ALGR, KC_SLCK, _______, _______, _______, _______,  KC_INS,   KC_HOME, KC_PGDN, KC_END
 ),
 
 /* Raise
@@ -81,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Del  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |   ö  |   ü  |   ó  |   ú  |  í   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |   ő  |   ű  |      | Vol+ | Mute |
+ * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |   ő  |   ű  | Mute | Vol+ | Enter|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      | Func |             |      | Play | Prev | Vol- | Next |
  * `-----------------------------------------------------------------------------------'
@@ -89,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT_planck_grid(
     HU_0,    HU_1,    HU_2,    HU_3,    HU_4,    HU_5,    HU_6,    HU_7,    HU_8,    HU_9,    BL_STEP, KC_BSPC,
     KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   HU_ODIA, HU_UDIA, HU_OACU, HU_UACU, HU_IACU,
-    _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  HU_ODAC, HU_UDAC, _______, KC_VOLU, KC_MUTE,
+    _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  HU_ODAC, HU_UDAC, KC_MUTE, KC_VOLU, KC_ENT,
     _______, _______, _______, _______, LAYER4,  _______, _______, _______, KC_MPLY, KC_MPRV, KC_VOLD, KC_MNXT
 ),
 
@@ -144,6 +144,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LAYER_CLR:
       layer_clear();
       clear_keyboard();
+      clear_oneshot_mods();
       break;
   }
   return true;
