@@ -30,6 +30,7 @@ enum planck_keycodes {
   BACKLIT,
   LAYER_CLR,
   LAYER4,
+  YPASSW
 };
 
 #define LOWER OSL(_LOWER)
@@ -61,17 +62,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |   ~  |   '  |   "  |   +  |   !  |   %  |   /  |   =  |   (  |   )  | CapsL| Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Del  |   \  |   |  |   ^  |   [  |  ]   |   `  |   *  |   $  |      |      |      |
+ * | Del  |   \  |   |  |   ^  |   [  |  ]   |   `  |   -  |   _  |   *  |   $  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |   >  |   #  |   &  |   @  |  {   |   }  |   <  |   >  |   ;  | PgUp | P Scr|
+ * |      |   >  |   #  |   &  |   @  |   ;  |  {   |   }  |   <  |   >  | PgUp | P Scr|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |Alt Gr|Scr LK|      |             |      | Ins  | Home | PgDo | End  |
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_planck_grid(
     HU_TILD, HU_QUOT, HU_DQUO, HU_PLUS, HU_EXLM, HU_PERC, HU_SLSH, HU_EQL,   HU_LPRN,  HU_RPRN, KC_CAPS, KC_BSPC,
-    KC_DEL,  HU_BSLS, HU_PIPE, HU_CIRC, HU_LBRC, HU_RBRC, HU_GRV,  HU_ASTR,  HU_DLR,   _______, _______, _______,
-    _______, HU_RABK, HU_HASH, HU_AMPR, HU_AT,   HU_LCBR, HU_RCBR, HU_LABK,  HU_RABK,  HU_SCLN, KC_PGUP, KC_PSCR,
+    KC_DEL,  HU_BSLS, HU_PIPE, HU_CIRC, HU_LBRC, HU_RBRC, HU_GRV,  HU_MINS,  S(HU_MINS),HU_ASTR, HU_DLR,  _______, 
+    _______, HU_RABK, HU_HASH, HU_AMPR, HU_AT,   HU_SCLN, HU_LCBR, HU_RCBR, HU_LABK,  HU_RABK,  KC_PGUP, KC_PSCR,
     _______, _______, KC_ALGR, KC_SLCK, _______, _______, _______, _______,  KC_INS,   KC_HOME, KC_PGDN, KC_END
 ),
 
@@ -99,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |   0  |Accel2|Accel1|Accel0|   0  | WH Do| Left | Down | Right|  0   |  0   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |   0  |   0  |   0  |   0  |   0  |   0  | BTN3 | BTN4 | BTN5 |  0   |  0   |
+ * |      |YPASSW|   0  |   0  |   0  |   0  |   0  | BTN3 | BTN4 | BTN5 |  0   |  0   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      | Clr  |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -107,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LAYER4] = LAYOUT_planck_grid(
     HU_0,    HU_0,    HU_0,         HU_0,         KC_MS_BTN1,   HU_0,    KC_MS_WH_UP,   KC_MS_BTN1, KC_MS_UP,   KC_MS_BTN2,  HU_0,    _______,
     _______, HU_0,    KC_MS_ACCEL2, KC_MS_ACCEL1, KC_MS_ACCEL0, HU_0,    KC_MS_WH_DOWN, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, HU_0,    HU_0,
-    _______, HU_0,    HU_0,         HU_0,         HU_0,         HU_0,    HU_0,          KC_MS_BTN3, KC_MS_BTN4, KC_MS_BTN5,  HU_0,    HU_0,
+    _______, YPASSW,  HU_0,         HU_0,         HU_0,         HU_0,    HU_0,          KC_MS_BTN3, KC_MS_BTN4, KC_MS_BTN5,  HU_0,    HU_0,
     _______, _______, _______,      _______,      LAYER_CLR,    _______, _______,       _______,    _______,    _______,     _______, _______
 ),
 };
@@ -118,6 +119,13 @@ uint16_t alt_tab_timer = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+    case YPASSW:
+      if (record->event.pressed) {
+        //SEND_STRING("");
+      } else {
+        layer_clear();
+      }
+      break;
     case QWERTY:
       if (record->event.pressed) {
         set_single_persistent_default_layer(_QWERTY);
