@@ -55,8 +55,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_planck_grid(
       KC_TAB,        HU_Q,          HU_W,          HU_E,    HU_R,    HU_T,    HU_Z,    HU_U,    HU_I,    HU_O,    HU_P,    KC_BSPC,
       KC_ESC,        HU_A,          HU_S,          HU_D,    HU_F,    HU_G,    HU_H,    HU_J,    HU_K,    HU_L,    HU_EACU, HU_AACU,
-      OSM(MOD_LSFT), HU_Y,          HU_X,          HU_C,    HU_V,    HU_B,    HU_N,    HU_M,    HU_COMM, HU_DOT,  KC_UP,   KC_ENT ,
-      OSM(MOD_LCTL), LAYER_CLR,     KC_LALT,       KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   HU_MINS, KC_LEFT, KC_DOWN, KC_RGHT
+      KC_LSFT,       HU_Y,          HU_X,          HU_C,    HU_V,    HU_B,    HU_N,    HU_M,    HU_COMM, HU_DOT,  KC_UP,   KC_ENT ,
+      KC_LCTL,       LAYER_CLR,     KC_LALT,       KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   HU_MINS, KC_LEFT, KC_DOWN, KC_RGHT
 ),
 
 /* Lower

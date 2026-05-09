@@ -55,9 +55,6 @@
 // Most tactile encoders have detents every 4 stages
 #define ENCODER_RESOLUTION 4
 
-#define ONESHOT_TAP_TOGGLE 2  /* Tapping this number of times holds the key until tapped once again. */
-#define ONESHOT_TIMEOUT 2000  /* Time (in ms) before the one shot key is released */
-
 #define COMBO_COUNT 3
 #define COMBO_TERM 100
 
